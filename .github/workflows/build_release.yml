@@ -157,7 +157,7 @@ jobs:
         if: ${{ matrix.platform == 'windows' }}
         run: |
           sudo wget https://github.com/mstorsjo/llvm-mingw/releases/download/20241119/llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64.tar.xz
-          sudo tar -xvzf llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64.tar.xz -C /
+          sudo tar -xf llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64.tar.xz -C /
           sudo apt-get update
           sudo apt-get install build-essential mingw-w64
           sudo update-alternatives --set i686-w64-mingw32-gcc /usr/bin/i686-w64-mingw32-gcc-posix
