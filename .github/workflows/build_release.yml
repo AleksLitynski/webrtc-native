@@ -160,6 +160,7 @@ jobs:
           sudo tar -xf llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64.tar.xz
           cd llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64
           sudo cp bin/aarch64-w64-mingw32-g++ bin/arm64-w64-mingw32-g++
+          sudo chmod +x bin/arm64-w64-mingw32-g++
           sudo echo "${pwd}/bin" >> $GITHUB_PATH
           sudo apt-get update
           sudo apt-get install build-essential mingw-w64
