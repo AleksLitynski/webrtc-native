@@ -156,16 +156,16 @@ jobs:
       - name: Install Windows build dependencies
         if: ${{ matrix.platform == 'windows' }}
         run: |
-          sudo wget -q https://github.com/mstorsjo/llvm-mingw/releases/download/20241119/llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64.tar.xz
-          sudo tar -xf llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64.tar.xz
-          pushd "$(pwd)/llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64/bin"
+          sudo wget -q https://github.com/mstorsjo/llvm-mingw/releases/download/20241119/llvm-mingw-20241119-ucrt-ubuntu-20.04-x86_64.tar.xz
+          sudo tar -xf llvm-mingw-20241119-ucrt-ubuntu-20.04-x86_64.tar.xz
+          pushd "$(pwd)/llvm-mingw-20241119-ucrt-ubuntu-20.04-x86_64/bin"
           sudo ls
           sudo cp "aarch64-w64-mingw32-g++" "arm64-w64-mingw32-g++"
           sudo cp "aarch64-w64-mingw32-gcc" "arm64-w64-mingw32-gcc"
           sudo chmod +x "arm64-w64-mingw32-g++"
           sudo chmod +x "arm64-w64-mingw32-gcc"
           popd
-          sudo echo "$(pwd)/llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64/bin" >> $GITHUB_PATH
+          sudo echo "$(pwd)/llvm-mingw-20241119-ucrt-ubuntu-20.04-x86_64/bin" >> $GITHUB_PATH
           sudo apt-get update
           sudo apt-get install build-essential mingw-w64
           sudo update-alternatives --set i686-w64-mingw32-gcc /usr/bin/i686-w64-mingw32-gcc-posix
