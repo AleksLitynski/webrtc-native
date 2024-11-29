@@ -162,8 +162,8 @@ jobs:
           sudo cp "bin/aarch64-w64-mingw32-g++" "bin/arm64-w64-mingw32-g++"
           sudo cp "bin/aarch64-w64-mingw32-gcc" "bin/arm64-w64-mingw32-gcc"
           sudo echo "$(pwd)/bin" >> $GITHUB_PATH
-          echo "CXXFLAGS=$CXXFLAGS -I$(pwd)/generic-w64-mingw32/include" >> $GITHUB_ENV
-          echo "CXXFLAGS=$CXXFLAGS -I$(pwd)/generic-w64-mingw32/include/c++/v1" >> $GITHUB_ENV
+          echo "CXXFLAGS=\"$CXXFLAGS -I$(pwd)/generic-w64-mingw32/include" >> $GITHUB_ENV
+          echo "CXXFLAGS=\"$CXXFLAGS -I$(pwd)/generic-w64-mingw32/include/c++/v1\"" >> $GITHUB_ENV
           popd
 
       - name: Install Linux build dependencies
