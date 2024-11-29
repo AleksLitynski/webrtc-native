@@ -158,6 +158,7 @@ jobs:
         run: |
           sudo wget -q https://github.com/mstorsjo/llvm-mingw/releases/download/20241119/llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64.tar.xz
           sudo tar -xf llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64.tar.xz
+          sudo ls "$(pwd)/llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64/bin"
           sudo cp "$(pwd)/llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64/bin/aarch64-w64-mingw32-g++" "$(pwd)/llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64/bin/arm64-w64-mingw32-g++"
           sudo cp "$(pwd)/llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64/bin/aarch64-w64-mingw32-gpp" "$(pwd)/llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64/bin/arm64-w64-mingw32-gpp"
           sudo echo "$(pwd)/llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64/bin" >> $GITHUB_PATH
