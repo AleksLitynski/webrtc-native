@@ -158,16 +158,14 @@ jobs:
         run: |
           sudo wget -q https://github.com/mstorsjo/llvm-mingw/releases/download/20241119/llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64.tar.xz
           sudo tar -xf llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64.tar.xz
-          cd llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64
-          sudo cp bin/aarch64-w64-mingw32-g++ bin/arm64-w64-mingw32-g++
-          sudo chmod +x bin/arm64-w64-mingw32-g++
-          sudo echo "$GITHUB_WORKSPACE/${{ matrix.buildroot }}/bin" >> $GITHUB_PATH
           sudo apt-get update
           sudo apt-get install build-essential mingw-w64
           sudo update-alternatives --set i686-w64-mingw32-gcc /usr/bin/i686-w64-mingw32-gcc-posix
           sudo update-alternatives --set i686-w64-mingw32-g++ /usr/bin/i686-w64-mingw32-g++-posix
           sudo update-alternatives --set x86_64-w64-mingw32-gcc /usr/bin/x86_64-w64-mingw32-gcc-posix
           sudo update-alternatives --set x86_64-w64-mingw32-g++ /usr/bin/x86_64-w64-mingw32-g++-posix
+          sudo update-alternatives --set arm64-w64-mingw32-gpp ${pwd}/llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64/bin/aarch64-w64-mingw32-gpp-posix
+          sudo update-alternatives --set arm64-w64-mingw32-g++ ${pwd}/llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64/bin/aarch64-w64-mingw32-g++-posix
           dpkg -l | grep ii | grep mingw
           update-alternatives --get-selections | grep mingw
 
