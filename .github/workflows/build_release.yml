@@ -159,23 +159,10 @@ jobs:
           sudo wget -q https://github.com/mstorsjo/llvm-mingw/releases/download/20241119/llvm-mingw-20241119-ucrt-ubuntu-20.04-x86_64.tar.xz
           sudo tar -xf llvm-mingw-20241119-ucrt-ubuntu-20.04-x86_64.tar.xz
           pushd "$(pwd)/llvm-mingw-20241119-ucrt-ubuntu-20.04-x86_64"
-          sudo ls
           sudo cp "bin/aarch64-w64-mingw32-g++" "bin/arm64-w64-mingw32-g++"
           sudo cp "bin/aarch64-w64-mingw32-gcc" "bin/arm64-w64-mingw32-gcc"
-          sudo chmod +x "bin/arm64-w64-mingw32-g++"
-          sudo chmod +x "bin/arm64-w64-mingw32-gcc"
           sudo echo "$(pwd)/bin" >> $GITHUB_PATH
-          sudo echo "CPLUS_INCLUDE_PATH=\"$(pwd)/generic-w64-mingw32/include:$CPLUS_INCLUDE_PATH\"" >> $GITHUB_ENV
-          sudo echo "CPLUS_INCLUDE_PATH=\"$(pwd)/generic-w64-mingw32/include/c++/v1:$CPLUS_INCLUDE_PATH\"" >> $GITHUB_ENV
           popd
-          sudo apt-get update
-          sudo apt-get install build-essential mingw-w64
-          sudo update-alternatives --set i686-w64-mingw32-gcc /usr/bin/i686-w64-mingw32-gcc-posix
-          sudo update-alternatives --set i686-w64-mingw32-g++ /usr/bin/i686-w64-mingw32-g++-posix
-          sudo update-alternatives --set x86_64-w64-mingw32-gcc /usr/bin/x86_64-w64-mingw32-gcc-posix
-          sudo update-alternatives --set x86_64-w64-mingw32-g++ /usr/bin/x86_64-w64-mingw32-g++-posix
-          dpkg -l | grep ii | grep mingw
-          update-alternatives --get-selections | grep mingw
 
       - name: Install Linux build dependencies
         if: ${{ matrix.platform == 'linux' }}
