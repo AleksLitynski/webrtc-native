@@ -164,7 +164,7 @@ jobs:
           sudo cp "aarch64-w64-mingw32-gcc" "arm64-w64-mingw32-gcc"
           sudo chmod +x "arm64-w64-mingw32-g++"
           sudo chmod +x "arm64-w64-mingw32-gcc"
-          sudo popd
+          popd
           sudo echo "$(pwd)/llvm-mingw-20241119-ucrt-ubuntu-20.04-aarch64/bin" >> $GITHUB_PATH
           sudo apt-get update
           sudo apt-get install build-essential mingw-w64
