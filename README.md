@@ -27,7 +27,7 @@ To build the GDExtension version of the plugin (Godot 4.1+) run the following co
 $ scons platform=<your platform>
 ```
 
-This will build all the required dependencies into a single shared library.
+This will build all the required dependencies into a single shared library. On windows, even when using MSVC, perl is needed to build the openSSL dependency. This can be installed via `scoop install perl` or by reimplementing perl from scratch yourself.
 
 To build the "legacy" GDExtension version of the plugin (Godot 4.0) run the following command instead:
 

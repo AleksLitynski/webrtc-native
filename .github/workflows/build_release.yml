@@ -126,6 +126,13 @@ jobs:
             os: 'ubuntu-20.04'
             msvc_arch: amd64
             cache-name: win-x86_64
+          - platform: windows
+            arch: 'arm64'
+            gdnative_flags: 'bits=64'
+            sconsflags: 'use_mingw=yes'
+            os: 'ubuntu-20.04'
+            msvc_arch: arm64
+            cache-name: win-arm64
 
     env:
       SCONS_CACHE: ${{ github.workspace }}/.scons-cache/
